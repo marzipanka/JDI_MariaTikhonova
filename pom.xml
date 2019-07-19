@@ -29,26 +29,6 @@
                 <suite.xml>src/test/resources/jdiTest.xml</suite.xml>
             </properties>
         </profile>
-        <!--
-                <profile>
-                    <id>test</id>
-                    <activation>
-                        <activeByDefault>false</activeByDefault>
-                    </activation>
-                    <properties>
-                        <suite.xml>src/test/resources/test.xml</suite.xml>
-                    </properties>
-                </profile>
-
-                <profile>
-                    <id>test-selenium</id>
-                    <activation>
-                        <activeByDefault>true</activeByDefault>
-                    </activation>
-                    <properties>
-                        <suite.xml>src/test/resources/testSelenium.xml</suite.xml>
-                    </properties>
-                </profile> -->
     </profiles>
 
     <dependencies>
@@ -64,25 +44,6 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>org.seleniumhq.selenium</groupId>-->
-        <!--<artifactId>selenium-java</artifactId>-->
-        <!--<version>3.141.59</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>commons-io</groupId>-->
-        <!--<artifactId>commons-io</artifactId>-->
-        <!--<version>2.6</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>io.github.bonigarcia</groupId>-->
-        <!--<artifactId>webdrivermanager</artifactId>-->
-        <!--<version>3.6.1</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>com.codeborne</groupId>
