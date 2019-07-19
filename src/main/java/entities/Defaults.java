@@ -10,7 +10,7 @@ public class Defaults {
     });
 
     public static MetalsAndColorsPageData DEFAULT_DATA = new MetalsAndColorsPageData().set(d-> {
-        d.setNumbers(Arrays.asList(3, 8));
+        d.setSummary(Arrays.asList(3, 8));
         d.setElements(Arrays.asList("Water", "Fire"));
         d.setColor("Red");
         d.setMetals("Selen");

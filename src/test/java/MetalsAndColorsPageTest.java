@@ -1,18 +1,27 @@
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+import entities.MetalsAndColorsPageData;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.epam.jdi.light.driver.WebDriverUtils.killAllSeleniumDrivers;
 import static com.epam.jdi.light.driver.get.DriverData.CHROME_OPTIONS;
 import static com.epam.jdi.light.logger.LogLevels.STEP;
 import static com.epam.jdi.light.settings.WebSettings.logger;
 import static com.epam.jdi.light.ui.html.PageFactory.initElements;
-import static entities.Defaults.DEFAULT_DATA;
 import static entities.Defaults.DEFAULT_USER;
 import static enums.HeaderMenu.METALS_AND_COLORS;
 
 public class MetalsAndColorsPageTest {
+
+    private static final String METALS_COLORS_DATA_SET = ".\\src\\test\\resources\\JDI_ex8_metalsColorsDataSet.json";
 
     @BeforeSuite(alwaysRun = true)
     public static void setUp() {
@@ -23,8 +32,17 @@ public class MetalsAndColorsPageTest {
         };
         logger.setLogLevel(STEP);
         initElements(SiteJdi.class);
+    }
+
+    @BeforeMethod(alwaysRun = true)
+    public void openSite() {
         SiteJdi.homePage.open();
         logger.info("Run Tests");
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void logout() {
+        SiteJdi.logout();
     }
 
     @AfterSuite(alwaysRun = true)
@@ -32,8 +50,25 @@ public class MetalsAndColorsPageTest {
         killAllSeleniumDrivers();
     }
 
-    @Test
-    public void metalsAndColorsPageTest() {
+    @DataProvider(name = "data")
+    public Object[] getData() throws FileNotFoundException {
+        Map<String, MetalsAndColorsPageData> dataSets = new HashMap<>();
+        Gson gson = new Gson();
+
+        try {
+        BufferedReader br = new BufferedReader(new FileReader(METALS_COLORS_DATA_SET));
+        Type type = new TypeToken<Map<String, MetalsAndColorsPageData>>() {
+        }.getType();
+            dataSets = gson.fromJson(br, type);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return dataSets.values().toArray();
+    }
+
+    @Test(dataProvider = "data")
+    public void metalsAndColorsPageTest(MetalsAndColorsPageData data) {
 
         //Login on JDI site as User
         SiteJdi.homePage.loginAs(DEFAULT_USER);
@@ -48,9 +83,9 @@ public class MetalsAndColorsPageTest {
         SiteJdi.metalsAndColorsPage.checkOpened();
 
         //Fill form Metals & Colors by data
-        SiteJdi.metalsAndColorsPage.fillForm(DEFAULT_DATA);
+        SiteJdi.metalsAndColorsPage.fillForm(data);
 
         //Result sections should contains data
-        SiteJdi.metalsAndColorsPage.checkResult(DEFAULT_DATA);
+        SiteJdi.metalsAndColorsPage.checkResult(data);
     }
 }

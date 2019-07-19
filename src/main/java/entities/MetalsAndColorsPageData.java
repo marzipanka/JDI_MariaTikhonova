@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 public class MetalsAndColorsPageData extends DataClass<MetalsAndColorsPageData> {
-    private List<Integer> numbers;
+    private List<Integer> summary;
     private List<String> elements;
     private String color;
     private String metals;

@@ -1,22 +1,22 @@
 package sections;
 
 import com.epam.jdi.light.elements.composite.Form;
-import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
+import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.ui.html.common.Button;
 import com.epam.jdi.light.ui.html.common.TextField;
 import entities.User;
 
 public class LoginForm extends Form<User> {
-    @FindBy(css = "#name")
+    @Css("#name")
     TextField name;
 
-    @FindBy(css = "#password")
+    @Css("#password")
     TextField password;
 
-    @FindBy(css = "#login-button")
+    @Css("#login-button")
     Button submit;
 
-    @FindBy(id = "user-icon")
+    @Css("#user-icon")
     private static Button userIcon;
 
     public void loginAs(User user) {

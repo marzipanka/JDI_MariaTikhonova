@@ -20,35 +20,35 @@
     </properties>
 
     <profiles>
-      <!--  <profile>
-            <id>splitted-test</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/splittedtest.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>test</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/test.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>test-selenium</id>
+       <profile>
+            <id>jdi-test</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/testSelenium.xml</suite.xml>
+                <suite.xml>src/test/resources/jdiTest.xml</suite.xml>
             </properties>
-        </profile> -->
+        </profile>
+        <!--
+                <profile>
+                    <id>test</id>
+                    <activation>
+                        <activeByDefault>false</activeByDefault>
+                    </activation>
+                    <properties>
+                        <suite.xml>src/test/resources/test.xml</suite.xml>
+                    </properties>
+                </profile>
+
+                <profile>
+                    <id>test-selenium</id>
+                    <activation>
+                        <activeByDefault>true</activeByDefault>
+                    </activation>
+                    <properties>
+                        <suite.xml>src/test/resources/testSelenium.xml</suite.xml>
+                    </properties>
+                </profile> -->
     </profiles>
 
     <dependencies>
@@ -134,6 +134,12 @@
             <artifactId>java-hamcrest</artifactId>
             <version>2.0.0.0</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.8</version>
         </dependency>
     </dependencies>
 

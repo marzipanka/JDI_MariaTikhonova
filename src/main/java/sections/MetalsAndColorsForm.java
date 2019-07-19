@@ -71,8 +71,8 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsPageData> {
 
     public void fillForm(MetalsAndColorsPageData metalsAndColorsPageData) {
         //fill numbers
-        oddNumbers.select(metalsAndColorsPageData.getNumbers().get(0).toString());
-        evenNumbers.select(metalsAndColorsPageData.getNumbers().get(1).toString());
+        oddNumbers.select(metalsAndColorsPageData.getSummary().get(0).toString());
+        evenNumbers.select(metalsAndColorsPageData.getSummary().get(1).toString());
         calculateButton.click();
 
         //fill elements
@@ -97,8 +97,8 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsPageData> {
     }
 
     public void checkResult(MetalsAndColorsPageData data) {
-        if ((data.getNumbers().get(0) != null) && (data.getNumbers().get(1) != null)) {
-            checkSummaryLogRow(data.getNumbers().get(0), data.getNumbers().get(1));
+        if ((data.getSummary().get(0) != null) && (data.getSummary().get(1) != null)) {
+            checkSummaryLogRow(data.getSummary().get(0), data.getSummary().get(1));
         }
         if (data.getElements() != null) {
             checkElementsLogRow(data.getElements());

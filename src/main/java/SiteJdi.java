@@ -11,7 +11,12 @@ public class SiteJdi {
     public static MetalsAndColorsPage metalsAndColorsPage;
 
     @Css(".profile-photo [ui=label]") public static UIElement userName;
-    @Css(".fa-sign-out") public static WebElement logout;
+    @Css(".dropdown-menu-login") public static WebElement logout;
     @Css("img#user-icon") public static WebElement userIcon;
     @UI("nav ul li") public static Menu headerMenu;
+
+    public static void logout() {
+        userIcon.click();
+        logout.click();
+    }
 }
