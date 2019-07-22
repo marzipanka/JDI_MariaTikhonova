@@ -74,6 +74,7 @@ public class MetalsAndColorsPageTest {
         SiteJdi.homePage.loginAs(DEFAULT_USER);
 
         //Piter_Chailovskii is logged in
+        // TODO This method should be parametrised exactly the same value like SiteJdi.homePage::loginAs
         SiteJdi.userName.assertThat().text(DEFAULT_USER.getFullName());
 
         //Open Metals & Colors page by Header menu
