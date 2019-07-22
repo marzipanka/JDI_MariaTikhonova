@@ -54,6 +54,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsPageData> {
     @Css("#submit-button")
     private Button submitButton;
 
+    // TODO Basically, this elements hav no relation with MetalsAndColorsForm, they should not be here.
     @Css(".summ-res")
     private Label summaryLogRow;
 
@@ -68,6 +69,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsPageData> {
 
     @Css(".sal-res")
     private Text vegetablesLogRow;
+    // !TODO
 
     public void fillForm(MetalsAndColorsPageData metalsAndColorsPageData) {
         //fill numbers
@@ -96,6 +98,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsPageData> {
         submitButton.click();
     }
 
+    // TODO Same story like line 57
     public void checkResult(MetalsAndColorsPageData data) {
         if ((data.getSummary().get(0) != null) && (data.getSummary().get(1) != null)) {
             checkSummaryLogRow(data.getSummary().get(0), data.getSummary().get(1));
@@ -120,6 +123,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsPageData> {
     }
 
     private void checkElementsLogRow(List<String> elements) {
+        // TODO Oh my, take a look on Strings::join method
         String elementsRow = elements.get(0);
         if (elements.size() > 1) {
             for (int i = 1; i < elements.size(); i++) {
@@ -138,6 +142,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsPageData> {
     }
 
     private void checkVegetablesLogRow(List<String> vegetables) {
+        // TODO Same story like 123 line
         String vegetablesRow = vegetables.get(0);
         if (vegetables.size() > 1) {
             for (int i = 1; i < vegetables.size(); i++) {
@@ -146,4 +151,5 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsPageData> {
         }
         vegetablesLogRow.assertThat().text(equalTo(String.format("Vegetables: %s", vegetablesRow)));
     }
+    // !TODO
 }
