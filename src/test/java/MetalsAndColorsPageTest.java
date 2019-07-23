@@ -56,9 +56,9 @@ public class MetalsAndColorsPageTest {
         Gson gson = new Gson();
 
         try {
-        BufferedReader br = new BufferedReader(new FileReader(METALS_COLORS_DATA_SET));
-        Type type = new TypeToken<Map<String, MetalsAndColorsPageData>>() {
-        }.getType();
+            BufferedReader br = new BufferedReader(new FileReader(METALS_COLORS_DATA_SET));
+            Type type = new TypeToken<Map<String, MetalsAndColorsPageData>>() {
+            }.getType();
             dataSets = gson.fromJson(br, type);
         } catch (Exception e) {
             System.out.println(e);
@@ -74,8 +74,8 @@ public class MetalsAndColorsPageTest {
         SiteJdi.homePage.loginAs(DEFAULT_USER);
 
         //Piter_Chailovskii is logged in
-        // TODO This method should be parametrised exactly the same value like SiteJdi.homePage::loginAs
-        SiteJdi.userName.assertThat().text(DEFAULT_USER.getFullName());
+        // fixed TODO This method should be parametrised exactly the same value like SiteJdi.homePage::loginAs
+        SiteJdi.assertUserName(DEFAULT_USER);
 
         //Open Metals & Colors page by Header menu
         SiteJdi.headerMenu.select(METALS_AND_COLORS);
