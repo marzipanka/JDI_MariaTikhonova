@@ -11,7 +11,7 @@
     <properties>
         <driver>chrome</driver>
         <java.version>1.8</java.version>
-        <testng.version>6.14.3</testng.version>
+        <testng.version>7.7.0</testng.version>
 
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <allure.version>2.12.1</allure.version>
